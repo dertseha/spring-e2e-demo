@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class SampleIntegrationTest extends AbstractIntegrationTest {
     @Test
     public void canQueryHello() {
-        webClient().shouldReceiveBodyFor("sample/hello", String.class,
+        webClient().shouldGetBodyFor("sample/hello", String.class,
                 (SoftAssertions softly, String body) -> softly.assertThat(body).isEqualTo("hello"));
     }
 }
