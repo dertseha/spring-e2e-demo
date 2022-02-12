@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class PersonController {
     private final PersonRepository personRepository;
 
-    PersonController(final PersonRepository personRepository) {
+    public PersonController(final PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
@@ -21,12 +21,16 @@ public class PersonController {
     public PersonDto createNewPerson(@RequestBody final NewPersonDto newPerson) {
         final PersonEntity entity = PersonEntity.builder().name(newPerson.getName()).build();
         final var storedEntity = this.personRepository.save(entity);
-        return PersonDto.builder().id(storedEntity.getId()).name(storedEntity.getName()).build();
+        return toDto(storedEntity);
     }
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonDto> getPerson(@PathVariable final long id) {
         final var storedEntity = this.personRepository.findById(id);
-        return ResponseEntity.of(storedEntity.map(e -> PersonDto.builder().id(e.getId()).name(e.getName()).build()));
+        return ResponseEntity.of(storedEntity.map(this::toDto));
+    }
+
+    private PersonDto toDto(final PersonEntity entity) {
+        return PersonDto.builder().id(entity.getId()).name(entity.getName()).build();
     }
 }
