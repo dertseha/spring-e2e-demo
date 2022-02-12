@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class E2eDemoApplication {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(E2eDemoApplication.class, args);
     }
 }
