@@ -1,9 +1,15 @@
 package com.example.e2edemo.test.samples;
 
-public class Random {
-    private final static java.util.Random rand = new java.util.Random();
+import java.security.SecureRandom;
 
-    public static <Type> Type entryOf(final Type[] entries) {
-        return entries[rand.nextInt(entries.length)];
+public class Random {
+    private static final SecureRandom RAND = new SecureRandom();
+
+    public static int aRandomIndexFor(final int limit) {
+        return (int) Math.abs(aRandomNumber() % (long) limit);
+    }
+
+    public static long aRandomNumber() {
+        return RAND.nextLong();
     }
 }
