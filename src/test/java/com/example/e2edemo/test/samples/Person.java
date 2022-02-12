@@ -1,4 +1,4 @@
-package com.example.e2edemo.integrationtest.samples;
+package com.example.e2edemo.test.samples;
 
 import com.example.e2edemo.dto.NewPersonDto;
 

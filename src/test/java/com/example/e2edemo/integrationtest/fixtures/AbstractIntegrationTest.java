@@ -1,5 +1,6 @@
 package com.example.e2edemo.integrationtest.fixtures;
 
+import com.example.e2edemo.test.Steps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public abstract class AbstractIntegrationTest {
+public abstract class AbstractIntegrationTest implements Steps<AbstractIntegrationTest> {
     @LocalServerPort
     private int serverPort;
 
@@ -30,11 +31,11 @@ public abstract class AbstractIntegrationTest {
         this.database.reset();
     }
 
-    protected WebClientFixture webClient() {
+    public WebClientFixture webClient() {
         return this.webClient;
     }
 
-    protected DatabaseFixture database() {
+    public DatabaseFixture database() {
         return this.database;
     }
 }

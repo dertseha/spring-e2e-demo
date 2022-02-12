@@ -1,4 +1,4 @@
-package com.example.e2edemo.integrationtest.samples;
+package com.example.e2edemo.test.samples;
 
 public class Random {
     private final static java.util.Random rand = new java.util.Random();
