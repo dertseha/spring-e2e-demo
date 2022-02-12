@@ -12,10 +12,10 @@ public abstract class AbstractIntegrationTest {
     private int serverPort;
 
     @Autowired
-    private WebServer webServer;
+    private WebServerFixture webServer;
 
     @Autowired
-    private WebClient webClient;
+    private WebClientFixture webClient;
 
     @Autowired
     private DatabaseFixture database;
@@ -30,7 +30,7 @@ public abstract class AbstractIntegrationTest {
         this.database.reset();
     }
 
-    protected WebClient webClient() {
+    protected WebClientFixture webClient() {
         return this.webClient;
     }
 

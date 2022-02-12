@@ -13,10 +13,10 @@ import java.util.Collections;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Component
-public class WebClient {
-    private final WebServer webServer;
+public class WebClientFixture {
+    private final WebServerFixture webServer;
 
-    public WebClient(final WebServer webServer) {
+    public WebClientFixture(final WebServerFixture webServer) {
         this.webServer = webServer;
     }
 

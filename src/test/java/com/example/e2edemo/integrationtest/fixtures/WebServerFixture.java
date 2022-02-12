@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Component
-public class WebServer {
+public class WebServerFixture {
 
     private int serverPort;
 
